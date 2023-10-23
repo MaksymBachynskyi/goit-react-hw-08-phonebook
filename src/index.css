@@ -9,8 +9,6 @@ body {
 
   padding: 1rem;
   display: grid;
-  place-items: center;
-  min-height: 100vh;
 }
 
 code {
@@ -43,4 +41,10 @@ input {
   border: 0;
   border-bottom: 1px solid lightblue;
   padding: 5px;
+}
+label {
+  display: block;
+  text-align: center;
+  line-height: 150%;
+  font-size: 0.85em;
 }

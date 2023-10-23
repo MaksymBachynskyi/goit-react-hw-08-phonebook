@@ -7,6 +7,8 @@ export const StyledWrapContacts = styled.ul`
   box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
   padding: 0;
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 0.1rem;
 `;
 

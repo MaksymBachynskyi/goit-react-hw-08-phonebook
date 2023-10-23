@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/operation';
-import { StyledBtn, StyledErrMsg, StyledForm } from './contactAddStyled';
+import { StyledBtnAdd, StyledErrMsg, StyledForm } from './contactAddStyled';
 import { selectorContacts } from 'redux/selectors';
 
 export default function ContactsAdd() {
@@ -68,9 +68,9 @@ export default function ContactsAdd() {
       <StyledErrMsg>
         {errors?.number && <p>{errors?.number?.message || 'Error'}</p>}
       </StyledErrMsg>
-      <StyledBtn type="submit" disabled={!isValid}>
+      <StyledBtnAdd type="submit" disabled={!isValid}>
         Create Contact
-      </StyledBtn>
+      </StyledBtnAdd>
     </StyledForm>
   );
 }
