@@ -7,7 +7,7 @@ export default function RegisterForm() {
   const {
     register,
     handleSubmit,
-    watch,
+
     reset,
     formState: { errors, isValid },
   } = useForm({ mode: 'onBlur' });
