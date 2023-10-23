@@ -1,8 +1,63 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://651f196c44a3a8aa47696d04.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+const unsetAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
+export const registerUser = createAsyncThunk(
+  'register/user',
+  async (user, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/signup', user);
+      setAuthHeader(response.data.token);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const logInUser = createAsyncThunk(
+  'login/user',
+  async (user, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/login', user);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const logOut = createAsyncThunk('logout/user', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logout');
+    unsetAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+export const refreshing = createAsyncThunk(
+  'refreshing/user',
+  async (_, thunkAPI) => {
+    const token = thunkAPI.getState().auth.token;
+    if (!token) {
+      return thunkAPI.rejectWithValue('Unable token user');
+    }
+    setAuthHeader(token);
+    try {
+      const response = await axios.get('/users/current');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
@@ -21,7 +76,7 @@ export const addContacts = createAsyncThunk(
     try {
       const response = await axios.post('/contacts', {
         name: obj.name,
-        phone: obj.number,
+        number: obj.number,
       });
       return response.data;
     } catch (e) {
