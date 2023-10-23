@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 export const StyledLayout = styled.div`
-  max-width: 1400px;
+  width: 100vw;
   padding: 0px 15px;
 `;
 export const StyledList = styled.ul`
