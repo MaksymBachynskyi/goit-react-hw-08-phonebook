@@ -15,7 +15,7 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   text-decoration: none;
   &.active {
-    color: orange;
+    color: rgb(231, 128, 231);
   }
 `;
 export const StyledWrapper = styled.div`

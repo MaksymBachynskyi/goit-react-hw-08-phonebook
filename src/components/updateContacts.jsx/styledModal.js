@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const StyledWrapContacts = styled.ul`
+export const StyledWrapUpdate = styled.form`
   list-style-position: inside;
   max-width: 100%;
   height: auto;
@@ -11,8 +11,7 @@ export const StyledWrapContacts = styled.ul`
   margin-right: auto;
   border-radius: 0.1rem;
 `;
-
-export const StyledItem = styled.div`
+export const StyledItemUpdate = styled.div`
   border-bottom: 1px solid lightblue;
   display: flex;
 justify-content: space-between;
@@ -25,8 +24,8 @@ justify-content: space-between;
 }
 
 `;
-export const StyledText = styled.p`
+export const StyledInputUpdate = styled.input`
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.4rem;
-  width: 150px;
+  margin: 0px;
 `;

@@ -7,7 +7,7 @@ import { Filter } from 'components/filter';
 
 export default function Tasks() {
   const dispatch = useDispatch();
-  const a = useSelector(state => state.contacts.isLoading);
+  const loading = useSelector(state => state.contacts.isLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -16,7 +16,7 @@ export default function Tasks() {
   return (
     <div>
       <ContactsAdd />
-      {a && <p>Loading...</p>}
+      {loading && <p>Loading...</p>}
       <Filter />
       <Contacts />
     </div>

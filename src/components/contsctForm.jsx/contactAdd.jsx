@@ -16,7 +16,9 @@ export default function ContactsAdd() {
 
   const onSubmit = data => {
     const isIcluded = contacts.some(
-      item => item.name.toLocaleLowerCase() === data.name.toLocaleLowerCase()
+      item =>
+        item.name.toLocaleLowerCase() === data.name.toLocaleLowerCase() &&
+        item.number === data.number
     );
     if (isIcluded) {
       alert(`${data.name} is alredy in contacts`);

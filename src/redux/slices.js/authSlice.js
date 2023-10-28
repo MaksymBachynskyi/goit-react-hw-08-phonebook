@@ -18,6 +18,7 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        alert('Congratulations you have created a new account');
       })
       .addCase(logInUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
