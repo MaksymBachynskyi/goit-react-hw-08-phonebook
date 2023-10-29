@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import {
+  StyledHeader,
   StyledLayout,
   StyledList,
   StyledNavLink,
@@ -12,7 +13,7 @@ export default function Layout() {
   const isLogIn = useSelector(state => state.auth.isLoggedIn);
   return (
     <StyledLayout>
-      <header>
+      <StyledHeader>
         {!isLogIn ? (
           <StyledList>
             <li>
@@ -28,7 +29,7 @@ export default function Layout() {
             <UserMenu />
           </StyledWrapper>
         )}
-      </header>
+      </StyledHeader>
       <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />

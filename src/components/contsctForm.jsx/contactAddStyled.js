@@ -17,7 +17,7 @@ export const StyledErrMsg = styled.div`
   color: red;
 `;
 export const StyledBtn = styled.button`
-  max-width: 250px;
+  max-width: 150px;
   margin: 0;
   cursor: pointer;
   background-color: rgb(231, 128, 231);

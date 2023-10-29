@@ -25,6 +25,7 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(logInUser.rejected, () => alert('Wrong Email or pasword'))
       .addCase(logOut.fulfilled, state => {
         state.user = { name: '', emai: '' };
         state.isLoggedIn = false;
