@@ -1,9 +1,9 @@
 import Modal from 'react-modal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch,  } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateContacts } from 'redux/operation';
 import { StyledBtn } from '../contsctForm.jsx/contactAddStyled';
-import { selectorContacts } from 'redux/selectors';
+
 import {
   StyledInputUpdate,
   StyledItemUpdate,
