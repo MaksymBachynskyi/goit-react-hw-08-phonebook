@@ -9,11 +9,11 @@ import {
   StyledItemUpdate,
   StyledWrapUpdate,
 } from './styledModal';
+import { toast } from 'react-toastify';
 
 export const ModalEl = ({ onToogelModal, user }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const contacts = useSelector(selectorContacts);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -23,17 +23,9 @@ export const ModalEl = ({ onToogelModal, user }) => {
       number: element.phone.value,
       id: user.id,
     };
-    const isIcluded = contacts.some(
-      item =>
-        item.name.toLocaleLowerCase() === newData.name.toLocaleLowerCase() &&
-        item.number === newData.number
-    );
-    if (isIcluded) {
-      alert(`${newData.name} is alredy in contacts`);
-      return;
-    }
+
     dispatch(updateContacts(newData));
-    alert('The changes were successful');
+    toast('Contact Updated');
     navigate('/login');
   };
 
@@ -49,7 +41,7 @@ export const ModalEl = ({ onToogelModal, user }) => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'black',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)',
         },
         content: {
           position: 'absolute',
@@ -64,6 +56,7 @@ export const ModalEl = ({ onToogelModal, user }) => {
           borderRadius: '4px',
           outline: 'none',
           padding: '20px',
+          height: '150px',
         },
       }}
     >

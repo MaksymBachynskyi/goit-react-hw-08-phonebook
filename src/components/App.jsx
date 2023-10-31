@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshing } from 'redux/operation';
 import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from './privateRoue';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterPage = lazy(() => import('pages.js/register'));
 const LoginPage = lazy(() => import('pages.js/login'));

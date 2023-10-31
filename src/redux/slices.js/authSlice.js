@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logInUser, logOut, refreshing, registerUser } from '../operation';
+import { toast } from 'react-toastify';
 
 export const authSlice = createSlice({
   name: 'userInfo',
@@ -18,14 +19,18 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        alert('Congratulations you have created a new account');
+        toast.success('Registretion Scceded');
       })
+      .addCase(registerUser.rejected, () => toast.error('Something went wrong'))
       .addCase(logInUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        toast.success('Login Succeded');
       })
-      .addCase(logInUser.rejected, () => alert('Wrong Email or pasword'))
+      .addCase(logInUser.rejected, () =>
+        toast.error('Email or password is not correct')
+      )
       .addCase(logOut.fulfilled, state => {
         state.user = { name: '', emai: '' };
         state.isLoggedIn = false;

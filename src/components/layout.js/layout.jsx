@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
 import {
   StyledHeader,
   StyledLayout,
@@ -13,6 +14,7 @@ export default function Layout() {
   const isLogIn = useSelector(state => state.auth.isLoggedIn);
   return (
     <StyledLayout>
+      <ToastContainer position="top-right" />
       <StyledHeader>
         {!isLogIn ? (
           <StyledList>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 export const StyledWrapUpdate = styled.form`
   list-style-position: inside;
   max-width: 100%;
-  height: auto;
+  height: 100px;
   background: white;
   box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
   padding: 0;
@@ -26,6 +26,6 @@ justify-content: space-between;
 `;
 export const StyledInputUpdate = styled.input`
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 1.4rem;
+  font-size: 1rem;
   margin: 0px;
 `;
